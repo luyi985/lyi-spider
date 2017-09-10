@@ -1,0 +1,38 @@
+{
+  "name": "lyi-spider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.15.4",
+    "winston": "^2.3.1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*"
+    ],
+    "delay": "2500"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -x 'babel-node index.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luyi985/lyi-spider.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luyi985/lyi-spider/issues"
+  },
+  "homepage": "https://github.com/luyi985/lyi-spider#readme"
+}
