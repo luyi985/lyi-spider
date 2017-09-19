@@ -45,7 +45,7 @@ slackRouter.get('/access', (req, res) => {
 			"client_secret": clientSecret,
 		},
 		headers: {
-			Content-Type: "application/x-www-form-urlencoded"
+			"Content-Type": "application/x-www-form-urlencoded"
 		}
 	})
 	.then(body => {
