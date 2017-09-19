@@ -5,14 +5,17 @@ const clientId = '237550111488.238862340437';
 const clientSecret = '6df288cf5c5db6ab6338959422461cc6';
 const scope = 'incoming-webhook,chat:write:bot'
 const redirectUri = 'http://138.197.9.69:8080/slack/access';
-
+const code = "237550111488.242831798641.efb15339cb861de67c51ec52e14614454a1a593fac84232b3adee4c8e4b4f603"
 
 const auth = [
 	`client_id=${clientId}`,
 	`scope=${scope}`,
-	//`client_secret=${clientSecret}`,
 	`redirect_uri=${redirectUri}`
 ]
+
+function access(code){
+	return 
+}
 
 const authParams = `?${auth.join('&')}`;
 
@@ -32,14 +35,22 @@ slackRouter.get('/auth', (req, res) => {
 })
 
 slackRouter.get('/access', (req, res) => {
-	res.send(req.query);
-	/*q({
-		method: 'GET',
-		url: `https://slack.com/oauth/authorize${authParams}`
+	
+	q({
+		method: 'POST',
+		url: `https://slack.com/api/oauth.access`,
+		json: {
+			"code" : req.query.code,
+			"client_id": clientId,
+			"client_secret": clientSecret,
+		}
+	})
+	.then(body => {
+		res.send(body)
 	})
 	.catch(e => {
 		res.send(e);
-	})*/
+	})
 })
 
 export default slackRouter;
