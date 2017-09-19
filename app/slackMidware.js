@@ -44,6 +44,7 @@ slackRouter.get('/access', (req, res) => {
 			"code" : req.query.code,
 			"client_id": clientId,
 			"client_secret": clientSecret,
+			"redirect_uri": redirectUri
 		}),
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded"
