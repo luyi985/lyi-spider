@@ -1,10 +1,11 @@
 import express from "express";
+import querystring from "querystring";
 import { q } from "./help";
 const slackRouter = express.Router();
 const clientId = '237550111488.238862340437';
 const clientSecret = '6df288cf5c5db6ab6338959422461cc6';
 const scope = 'incoming-webhook,chat:write:bot'
-const redirectUri = 'http://138.197.9.69:8080/slack/access';
+const redirectUri = 'http://138.197.9.69:8080/slack/access';//'http://localhost:8080/slack/access';
 const code = "237550111488.242831798641.efb15339cb861de67c51ec52e14614454a1a593fac84232b3adee4c8e4b4f603"
 
 const auth = [
@@ -39,11 +40,11 @@ slackRouter.get('/access', (req, res) => {
 	q({
 		method: 'POST',
 		url: `https://slack.com/api/oauth.access`,
-		body: {
+		body: querystring.stringify({
 			"code" : req.query.code,
 			"client_id": clientId,
 			"client_secret": clientSecret,
-		},
+		}),
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded"
 		}
