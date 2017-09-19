@@ -39,10 +39,13 @@ slackRouter.get('/access', (req, res) => {
 	q({
 		method: 'POST',
 		url: `https://slack.com/api/oauth.access`,
-		json: {
+		body: {
 			"code" : req.query.code,
 			"client_id": clientId,
 			"client_secret": clientSecret,
+		},
+		headers: {
+			Content-Type: "application/x-www-form-urlencoded"
 		}
 	})
 	.then(body => {
