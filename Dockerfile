@@ -3,8 +3,6 @@ RUN mkdir /app
 RUN cd /app
 WORKDIR /app
 COPY ./src .
-RUN ls
-RUN pwd
-RUN npm install -g yarn
-RUN yarn
-CMD npm start
+COPY ./run.sh .
+RUN chmod u+x ./run.sh
+CMD /bin/sh ./run.sh
