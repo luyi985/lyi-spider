@@ -43,3 +43,14 @@ export function postSlack(text) {
 		})
 	})
 }
+
+export function monthlyRepayment(priciple, years, loanRate) {
+	const n = parseInt(years) * 12;
+	const i = parseFloat(loanRate, 10) / 12 / 100;
+	const p = parseInt( priciple, 10);
+
+	if( n && i && p) {
+		return p * i * (Math.pow(1 + i, n)) / (Math.pow(1 + i, n) - 1);
+	}
+}
+

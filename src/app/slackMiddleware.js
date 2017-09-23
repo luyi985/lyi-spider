@@ -14,9 +14,6 @@ const auth = [
 	`redirect_uri=${redirectUri}`
 ]
 
-function access(code){
-	return 
-}
 
 const authParams = `?${auth.join('&')}`;
 
