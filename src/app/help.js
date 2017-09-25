@@ -44,9 +44,21 @@ export function postSlack(text) {
 	})
 }
 
-export function monthlyRepayment(priciple, years, loanRate) {
-	const n = parseInt(years) * 12;
-	const i = parseFloat(loanRate, 10) / 12 / 100;
+export function monthlyRepayment(priciple, years, loanRate, frequent) {
+	let f;
+	switch (frequent) {
+		case 'week': 
+			f = 52;
+			break;
+		case 'fortnight':
+			f = 26;
+			break;
+		default: 
+			f = 12
+	}
+
+	const n = parseInt(years) * f;
+	const i = parseFloat(loanRate, 10) / f / 100;
 	const p = parseInt( priciple, 10);
 
 	if( n && i && p) {
