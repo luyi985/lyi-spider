@@ -2,7 +2,7 @@ import express from "express";
 import querystring from "querystring";
 import { q } from "./help";
 const slackRouter = express.Router();
-const token = "xoxp-237550111488-237682550961-246122429472-ad98cd4894f62b8dfe8e44c6325cd6e8";
+const token = "xoxp-237550111488-237682550961-247427851653-b7f313c16a991c23672447d087ee2727";
 const messageApi = "https://slack.com/api/chat.postMessage";
 
 slackRouter.get('/msg', (req, res) => {
